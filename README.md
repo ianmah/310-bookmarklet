@@ -2,6 +2,7 @@
 
 Create query test cases quickly. For UBC CPSC 310 students.
 
+![preview](/public/preview.png)
 
 ## Usage
 
