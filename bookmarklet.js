@@ -3,7 +3,7 @@ javascript:(
         if (!document.getElementById("generate-button")) {
             console.stdlog = console.log.bind(console);
             console.logs = [];
-            console.log = function(){
+            console.log = () => {
                 console.logs.push(Array.from(arguments));
                 console.stdlog.apply(console, arguments);
             };
@@ -21,7 +21,7 @@ javascript:(
 
             /* https://stackoverflow.com/questions/33855641/copy-output-of-a-javascript-variable-to-the-clipboard */
             const copyToClipboard = (text) => {
-                var dummy = document.createElement("textarea");
+                const dummy = document.createElement("textarea");
                 document.body.appendChild(dummy);
                 dummy.value = text;
                 dummy.select();
