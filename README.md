@@ -12,6 +12,6 @@ Create query test cases quickly. For UBC CPSC 310 students. [demo](https://www.y
 1. The test case will be in your clipboard. 
 1. Profit.
 
-[demo](https://www.youtube.com/watch?v=XbBjG6ygyDg)
+Mac users or if it isn't working try [these steps](https://mreidsma.github.io/bookmarklets/installing.html) or watch this [video](https://www.youtube.com/watch?v=XbBjG6ygyDg)
 
 PRs welcome
