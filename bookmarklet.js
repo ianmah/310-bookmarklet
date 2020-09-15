@@ -68,7 +68,7 @@ javascript:(
                                 
                             }
 
-                            /* Do nothing there is no object */
+                            /* Do nothing if there is no object */
                             obj && copyToClipboard(JSON.stringify(obj, null, 4));
                             console.logs = [];
                         }, 420);
