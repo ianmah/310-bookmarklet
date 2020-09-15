@@ -1,6 +1,6 @@
 # 310-bookmarklet
 
-Create query test cases quickly. For UBC CPSC 310 students.
+Create query test cases quickly. For UBC CPSC 310 students. [demo](https://www.youtube.com/watch?v=XbBjG6ygyDg)
 
 ![preview](/public/preview.png)
 
@@ -11,3 +11,7 @@ Create query test cases quickly. For UBC CPSC 310 students.
 1. Click 'Copy Test File'
 1. The test case will be in your clipboard. 
 1. Profit.
+
+[demo](https://www.youtube.com/watch?v=XbBjG6ygyDg)
+
+PRs welcome
