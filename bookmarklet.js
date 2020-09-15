@@ -75,7 +75,7 @@ javascript:(
             button.innerHTML = "Copy Test File";
             button.id = "generate-button";
             button.className = "btn";
-            button.href = "#";
+            button.href = "#!";
             button.onclick = onClick;
             parent.appendChild(button);
         }
