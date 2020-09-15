@@ -6,7 +6,7 @@ Create query test cases quickly. For UBC CPSC 310 students.
 
 ## Usage
 
-1. Go to [the code](/bookmarklet.js), select it all, and create a new bookmark with the URL as the content of the file.
+1. Go to [the code](https://raw.githubusercontent.com/ianmah/310-bookmarklet/master/bookmarklet.js), select all, and drag the code to your bookmarks bar. (Or create a new bookmark with content of the file as the URL).
 1. Go to [CampusExplorer](https://cs310.students.cs.ubc.ca/ui/index.html) and click on the bookmark.
 1. Click 'Copy Test File'
 1. The test case will be in your clipboard. 
