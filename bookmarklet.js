@@ -1,7 +1,7 @@
 javascript:(
     function() {
-        const hahaFunnySegsNumber = 69;
-        const hahaFunnyWeedNumber = 420;
+        const pollInterval = 69;
+        const resultWaitTime = 420;
         if (!document.getElementById("generate-button")) {
             console.stdlog = console.log.bind(console);
             console.logs = [];
@@ -17,7 +17,7 @@ javascript:(
                         clearInterval(intervalPoll);
                         callback();
                     };
-                }, hahaFunnySegsNumber);
+                }, pollInterval);
                 setTimeout(() => clearInterval(intervalPoll), timeout);
             };
 
@@ -73,7 +73,7 @@ javascript:(
                             /* Do nothing if there is no object */
                             obj && copyToClipboard(JSON.stringify(obj, null, 4));
                             console.logs = [];
-                        }, hahaFunnyWeedNumber);
+                        }, resultWaitTime);
                     });
                 };
             };
