@@ -31,6 +31,16 @@ javascript:(
                 document.body.removeChild(dummy);
             };
 
+            const downloadFile = (text) => {
+                var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(text);                
+                var downloadAnchorNode = document.createElement('a');
+                downloadAnchorNode.setAttribute("href",     dataStr);
+                downloadAnchorNode.setAttribute("download",  "download.json");
+                document.body.appendChild(downloadAnchorNode);
+                downloadAnchorNode.click();                
+                downloadAnchorNode.remove();
+            }
+
             const onClick = () => {
                 if (!document.body.classList.contains('loading')) {
                     document.getElementById("submit-button").click();
@@ -71,7 +81,7 @@ javascript:(
                             }
 
                             /* Do nothing if there is no object */
-                            obj && copyToClipboard(JSON.stringify(obj, null, 4));
+                            obj && copyToClipboard(JSON.stringify(obj, null, 4)) && downloadFile(JSON.stringify(obj, null, 4));
                             console.logs = [];
                         }, resultWaitTime);
                     });
