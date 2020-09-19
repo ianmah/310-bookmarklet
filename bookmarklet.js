@@ -33,17 +33,16 @@ javascript:(
             };
 
             const downloadFile = (text) => {
-            	if (document.getElementById("download-checkbox").checked === false){
-            		return;
+            	if (document.getElementById("download-checkbox").checked){
+                    let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(text);                
+                    let downloadAnchorNode = document.createElement('a');
+                    downloadAnchorNode.setAttribute("href",     dataStr);
+                    downloadAnchorNode.setAttribute("download",  "download.json");
+                    document.body.appendChild(downloadAnchorNode);
+                    downloadAnchorNode.click();                
+                    downloadAnchorNode.remove();
             	}
-                let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(text);                
-                let downloadAnchorNode = document.createElement('a');
-                downloadAnchorNode.setAttribute("href",     dataStr);
-                downloadAnchorNode.setAttribute("download",  "download.json");
-                document.body.appendChild(downloadAnchorNode);
-                downloadAnchorNode.click();                
-                downloadAnchorNode.remove();
-            }
+            };
 
             const onClick = () => {
                 if (!document.body.classList.contains('loading')) {
@@ -85,7 +84,7 @@ javascript:(
                             }
 
                             /* Do nothing if there is no object */
-                            obj && copyToClipboard(JSON.stringify(obj, null, defaultIndentation)) && downloadFile(JSON.stringify(obj, null, defaultIndentation));
+                            obj && downloadFile(JSON.stringify(obj, null, defaultIndentation)) && copyToClipboard(JSON.stringify(obj, null, defaultIndentation));
                             console.logs = [];
                         }, resultWaitTime);
                     });
@@ -94,7 +93,11 @@ javascript:(
     
             const parent = document.getElementById("submit-container");
             const button = document.createElement("a");
+            const downloadCheckboxText = document.createElement("span");
             const downloadCheckbox = document.createElement("input");
+
+
+            downloadCheckboxText.innerHTML = "Download Test File";
 
             button.innerHTML = "Copy Test File";
             button.id = "generate-button";
@@ -102,11 +105,11 @@ javascript:(
             button.href = "#!";
             button.onclick = onClick;
 
-            downloadCheckbox.innerHTML = "Download Test File";
             downloadCheckbox.type = "checkbox";
             downloadCheckbox.id = "download-checkbox";
 
             parent.appendChild(button);
+            parent.appendChild(downloadCheckboxText);
             parent.appendChild(downloadCheckbox);
         }
     }
