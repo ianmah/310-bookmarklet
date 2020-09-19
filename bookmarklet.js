@@ -107,6 +107,7 @@ javascript:(
             downloadCheckbox.id = "download-checkbox";
 
             parent.appendChild(button);
+            parent.appendChild(downloadCheckbox);
         }
     }
 )();
