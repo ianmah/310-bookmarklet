@@ -2,6 +2,7 @@ javascript:(
     function() {
         const pollInterval = 69;
         const resultWaitTime = 420;
+        const defaultIndentation = 4;
         if (!document.getElementById("generate-button")) {
             console.stdlog = console.log.bind(console);
             console.logs = [];
@@ -81,7 +82,7 @@ javascript:(
                             }
 
                             /* Do nothing if there is no object */
-                            obj && copyToClipboard(JSON.stringify(obj, null, 4)) && downloadFile(JSON.stringify(obj, null, 4));
+                            obj && copyToClipboard(JSON.stringify(obj, null, defaultIndentation)) && downloadFile(JSON.stringify(obj, null, defaultIndentation));
                             console.logs = [];
                         }, resultWaitTime);
                     });
