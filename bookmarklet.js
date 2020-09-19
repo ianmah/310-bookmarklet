@@ -32,8 +32,8 @@ javascript:(
             };
 
             const downloadFile = (text) => {
-                var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(text);                
-                var downloadAnchorNode = document.createElement('a');
+                let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(text);                
+                let downloadAnchorNode = document.createElement('a');
                 downloadAnchorNode.setAttribute("href",     dataStr);
                 downloadAnchorNode.setAttribute("download",  "download.json");
                 document.body.appendChild(downloadAnchorNode);
