@@ -33,6 +33,9 @@ javascript:(
             };
 
             const downloadFile = (text) => {
+            	if (document.getElementById("download-checkbox").checked === false){
+            		return;
+            	}
                 let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(text);                
                 let downloadAnchorNode = document.createElement('a');
                 downloadAnchorNode.setAttribute("href",     dataStr);
@@ -91,11 +94,18 @@ javascript:(
     
             const parent = document.getElementById("submit-container");
             const button = document.createElement("a");
+            const downloadCheckbox = document.createElement("input");
+
             button.innerHTML = "Copy Test File";
             button.id = "generate-button";
             button.className = "btn";
             button.href = "#!";
             button.onclick = onClick;
+
+            downloadCheckbox.innerHTML = "Download Test File";
+            downloadCheckbox.type = "checkbox";
+            downloadCheckbox.id = "download-checkbox";
+
             parent.appendChild(button);
         }
     }
