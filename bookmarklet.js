@@ -84,7 +84,8 @@ javascript:(
                             }
 
                             /* Do nothing if there is no object */
-                            obj && downloadFile(JSON.stringify(obj, null, defaultIndentation)) && copyToClipboard(JSON.stringify(obj, null, defaultIndentation));
+                            const stringifiedObj = JSON.stringify(obj, null, defaultIndentation);
+                            obj && downloadFile(stringifiedObj) && copyToClipboard(stringifiedObj);
                             console.logs = [];
                         }, resultWaitTime);
                     });
