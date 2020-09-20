@@ -34,10 +34,10 @@ javascript:(
 
             const downloadFile = (text) => {
             	if (document.getElementById("download-checkbox").checked){
-                    let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(text);                
-                    let downloadAnchorNode = document.createElement('a');
-                    downloadAnchorNode.setAttribute("href",     dataStr);
-                    downloadAnchorNode.setAttribute("download",  "download.json");
+                    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(text);                
+                    const downloadAnchorNode = document.createElement('a');
+                    downloadAnchorNode.setAttribute("href", dataStr);
+                    downloadAnchorNode.setAttribute("download", "download.json");
                     document.body.appendChild(downloadAnchorNode);
                     downloadAnchorNode.click();                
                     downloadAnchorNode.remove();
