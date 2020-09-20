@@ -32,6 +32,7 @@ javascript:(
                 document.body.removeChild(dummy);
             };
 
+            /* https://stackoverflow.com/questions/19721439/download-json-object-as-a-file-from-browser */
             const downloadFile = (text) => {
             	if (document.getElementById("download-checkbox").checked){
                     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(text);                
