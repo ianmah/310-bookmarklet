@@ -2,6 +2,7 @@ javascript:(
     function() {
         const pollInterval = 69;
         const resultWaitTime = 420;
+        const defaultIndentation = 4;
         if (!document.getElementById("generate-button")) {
             console.stdlog = console.log.bind(console);
             console.logs = [];
@@ -29,6 +30,19 @@ javascript:(
                 dummy.select();
                 document.execCommand("copy");
                 document.body.removeChild(dummy);
+            };
+
+            /* https://stackoverflow.com/questions/19721439/download-json-object-as-a-file-from-browser */
+            const downloadFile = (text) => {
+            	if (document.getElementById("download-checkbox").checked){
+                    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(text);                
+                    const downloadAnchorNode = document.createElement('a');
+                    downloadAnchorNode.setAttribute("href", dataStr);
+                    downloadAnchorNode.setAttribute("download", "download.json");
+                    document.body.appendChild(downloadAnchorNode);
+                    downloadAnchorNode.click();                
+                    downloadAnchorNode.remove();
+            	}
             };
 
             const onClick = () => {
@@ -71,7 +85,8 @@ javascript:(
                             }
 
                             /* Do nothing if there is no object */
-                            obj && copyToClipboard(JSON.stringify(obj, null, 4));
+                            const stringifiedObj = JSON.stringify(obj, null, defaultIndentation);
+                            obj && downloadFile(stringifiedObj) && copyToClipboard(stringifiedObj);
                             console.logs = [];
                         }, resultWaitTime);
                     });
@@ -80,12 +95,24 @@ javascript:(
     
             const parent = document.getElementById("submit-container");
             const button = document.createElement("a");
+            const downloadCheckboxText = document.createElement("span");
+            const downloadCheckbox = document.createElement("input");
+
+
+            downloadCheckboxText.innerHTML = "Download Test File";
+
             button.innerHTML = "Copy Test File";
             button.id = "generate-button";
             button.className = "btn";
             button.href = "#!";
             button.onclick = onClick;
+
+            downloadCheckbox.type = "checkbox";
+            downloadCheckbox.id = "download-checkbox";
+
             parent.appendChild(button);
+            parent.appendChild(downloadCheckboxText);
+            parent.appendChild(downloadCheckbox);
         }
     }
 )();
